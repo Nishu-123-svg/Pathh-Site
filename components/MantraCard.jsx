@@ -126,63 +126,63 @@ export default function MantraCard({
       <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none border-b-2 border-r-2 border-[var(--accent-gold)] rounded-br-2xl m-2" />
 
       {/* Header Banner */}
-      <div className="px-6 py-6 sm:px-10 sm:py-8 border-b border-[var(--border-sacred)] bg-gradient-to-b from-[var(--bg-secondary)]/70 to-transparent">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="px-4 py-5 sm:px-10 sm:py-8 border-b border-[var(--border-sacred)] bg-gradient-to-b from-[var(--bg-secondary)]/70 to-transparent">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-2.5">
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white font-bold text-xs shadow-sm">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white font-bold text-xs shadow-sm">
                 {mantra.number}
               </span>
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-[var(--accent-saffron)] border border-amber-500/30">
+              <span className="text-[11px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-[var(--accent-saffron)] border border-amber-500/30">
                 {mantra.category}
               </span>
-              <span className="text-xs text-[var(--text-secondary)] flex items-center gap-1 font-medium">
-                <Clock className="w-3.5 h-3.5" />
+              <span className="text-[11px] sm:text-xs text-[var(--text-secondary)] flex items-center gap-1 font-medium">
+                <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {mantra.estimatedMinutes} मिनट
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-4xl font-bold font-devanagari text-[var(--text-primary)] tracking-wide leading-snug sm:leading-normal py-1">
+            <h3 className="text-xl sm:text-4xl font-bold font-devanagari text-[var(--text-primary)] tracking-wide leading-snug sm:leading-normal py-0.5 sm:py-1">
               {mantra.title}
             </h3>
 
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)] font-medium italic">
+            <p className="text-[11px] sm:text-sm text-[var(--text-secondary)] font-medium italic">
               {mantra.transliterationTitle} • <span className="not-italic font-semibold text-[var(--accent-saffron)]">{mantra.deity}</span>
             </p>
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="flex items-center flex-wrap gap-2 pt-2 sm:pt-0 no-print">
+          <div className="flex items-center flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-0 no-print">
             
             {/* Mark Completed Button */}
             <button
               onClick={handleToggleDone}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all shadow-sm active:scale-95 ${
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-sm active:scale-95 ${
                 isCompleted
                   ? 'bg-amber-600 text-white shadow-amber-600/30'
                   : 'bg-[var(--bg-secondary)] border border-[var(--border-sacred)] text-[var(--text-primary)] hover:border-amber-500'
               }`}
               title={isCompleted ? "नियम पूर्ण हुआ" : "नियम पूर्ण चिह्नित करें"}
             >
-              <Check className="w-3.5 h-3.5" />
-              <span>{isCompleted ? "पाठ पूर्ण ✓" : "पूर्ण चिह्नित करें"}</span>
+              <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>{isCompleted ? "पाठ पूर्ण ✓" : "पूर्ण करें"}</span>
             </button>
 
             {/* Jap Mala Direct Link */}
             <button
               onClick={() => onOpenJapMalaWith(mantra.title)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-500/15 border border-amber-500/30 text-[var(--accent-saffron)] hover:bg-amber-500/25 transition"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold bg-amber-500/15 border border-amber-500/30 text-[var(--accent-saffron)] hover:bg-amber-500/25 transition"
               title="इस मंत्र के लिए जप माला खोलें"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">जप करें</span>
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>जप</span>
             </button>
 
             {/* Read Aloud / TTS */}
             <button
               onClick={handleToggleSpeech}
-              className={`p-2 rounded-full border border-[var(--border-sacred)] transition ${
+              className={`p-1.5 sm:p-2 rounded-full border border-[var(--border-sacred)] transition ${
                 isSpeaking 
                   ? 'bg-orange-500 text-white border-orange-600 animate-pulse' 
                   : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -195,7 +195,7 @@ export default function MantraCard({
             {/* Toggle Transliteration (Romanized) */}
             <button
               onClick={() => setShowTransliteration(!showTransliteration)}
-              className={`p-2 rounded-full border transition ${
+              className={`p-1.5 sm:p-2 rounded-full border transition ${
                 showTransliteration
                   ? 'bg-amber-500 text-white border-amber-600'
                   : 'border-[var(--border-sacred)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -208,7 +208,7 @@ export default function MantraCard({
             {/* Toggle Meaning */}
             <button
               onClick={() => setShowMeanings(!showMeanings)}
-              className={`p-2 rounded-full border transition ${
+              className={`p-1.5 sm:p-2 rounded-full border transition ${
                 showMeanings
                   ? 'bg-amber-500 text-white border-amber-600'
                   : 'border-[var(--border-sacred)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -221,7 +221,7 @@ export default function MantraCard({
             {/* Copy Button */}
             <button
               onClick={handleCopy}
-              className="p-2 rounded-full border border-[var(--border-sacred)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
+              className="p-1.5 sm:p-2 rounded-full border border-[var(--border-sacred)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
               title="संपूर्ण पाठ कॉपी करें"
             >
               {copied ? <CheckCheck className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -233,7 +233,7 @@ export default function MantraCard({
 
         {/* Intro Description */}
         {mantra.description && (
-          <p className="mt-3 text-xs sm:text-sm text-[var(--text-secondary)] font-devanagari">
+          <p className="mt-2.5 text-[11px] sm:text-sm text-[var(--text-secondary)] font-devanagari">
             {mantra.description}
           </p>
         )}
@@ -241,7 +241,7 @@ export default function MantraCard({
 
       {/* Verses Content Section */}
       <div 
-        className="px-6 py-8 sm:px-12 sm:py-12 space-y-8 font-devanagari text-[var(--text-primary)] leading-loose text-center"
+        className="px-3 py-5 sm:px-12 sm:py-12 space-y-6 sm:space-y-8 font-devanagari text-[var(--text-primary)] leading-relaxed sm:leading-loose text-center"
         style={{ fontSize: `${fontSize}px` }}
       >
         {mantra.sections.map((section, sIdx) => (

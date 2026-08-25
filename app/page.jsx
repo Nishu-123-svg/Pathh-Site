@@ -154,7 +154,7 @@ export default function Home() {
       />
 
       {/* Continuous Main Prayer Flow */}
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-12 space-y-8 sm:space-y-16">
         {MANTRAS_DATA.map((mantra) => (
           <MantraCard
             key={mantra.id}
